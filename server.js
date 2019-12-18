@@ -36,7 +36,8 @@ function runSearch() {
       ]
     })
     .then(function(answer) {
-      switch (answer.action) {
+      var action = answer.action
+      switch (action) {
       case "Add an employee":
         addEmployee();
         break;
@@ -65,44 +66,49 @@ function runSearch() {
 };
 
 function addEmployee() {
-  inquirer
-    .prompt([
-    {
-      name: "first_name",
-      type: "input",
-      message: "What is the employees first name?"
-    },
-    {
-      type: 'input',
-      name: 'last_name',
-      message: "What's is the employees last name"
-  }        
-    ])
-    .then(function(answer) {
-      var query = " SELECT employee.first_name, employee.last_name";
-      query += "INSERT INTO employee.first_name AND employee.last_name SET WHERE (first_name = ? AND last_name = ?)";
+  //left join to pull different ID's
+   connection.query("SELECT * FROM ")
+}
 
-      connection.query(query, [answer.first_name, answer.last_name], function(err, res){
-        for (var i = 0; i < res.length; i++) {
-          console.log(
-            "ID: " + 
-            res[i].id +
-            " || First Name: " + 
-            res[i].answer.first_name + 
-            " || Last Name: " + 
-            res[i].answer.last_name + 
-            " || Role: " + 
-            res[i].role_id +
-            " || Manager ID: " +
-            res[i].manager_id
-            );
-            runSearch();
-        }
-      });
-    });
+//function addEmployee() {
+  //inquirer
+    //.prompt([
+//    {
+  //    name: "first_name",
+    //  type: "input",
+      //message: "What is the employees first name?"
+//    },
+  //  {
+    //  type: 'input',
+      //name: 'last_name',
+      //message: "What's is the employees last name"
+//  }        
+  //  ])
+    //.then(function(answer) {
+      //var query = " SELECT employee.first_name, employee.last_name";
+      //query += "INSERT INTO employee.first_name AND employee.last_name SET WHERE (first_name = ? AND last_name = ?)";
+
+//      connection.query(query, [answer.first_name, answer.last_name], function(err, res){
+  //      for (var i = 0; i < res.length; i++) {
+    //      console.log(
+      //      "ID: " + 
+        //    res[i].id +
+        //    " || First Name: " + 
+        //    res[i].answer.first_name + 
+        //    " || Last Name: " + 
+        //    res[i].answer.last_name + 
+        //    " || Role: " + 
+        //    res[i].role_id +
+        //    " || Manager ID: " +
+        //    res[i].manager_id
+        //    );
+        //    runSearch();
+      //  }
+    //  });
+  //  });
     // logs the actual query being run
-    console.log(query.sql);
-};
+  //  console.log(query.sql);
+//};
 
 function addDepartment() {
   inquirer

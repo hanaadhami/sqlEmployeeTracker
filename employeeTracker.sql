@@ -29,11 +29,39 @@ CREATE TABLE employee (
 INSERT INTO department (name)
 VALUES ("music");
 
+INSERT INTO department (name)
+VALUES ("marketing");
+
+INSERT INTO department (name)
+VALUES ("HR");
+
+INSERT INTO department (name)
+VALUES ("accounting");
+
 INSERT INTO role (title, salary, department_id)
 VALUES ("VP of Music", 90000.54, 1);
 
+INSERT INTO role (title, salary, department_id)
+VALUES ("VP of Marketing", 104,486.00, 2);
+
+INSERT INTO role (title, salary, department_id)
+VALUES ("Head of HR", 94,486.00, 3);
+
+INSERT INTO role (title, salary, department_id)
+VALUES ("Acct Director", 190,486.00, 4);
+
+
 INSERT INTO employee (first_name, last_name)
 VALUES ("aubrey", "graham");
+
+INSERT INTO employee (first_name, last_name)
+VALUES ("brad", "pitt");
+
+INSERT INTO employee (first_name, last_name)
+VALUES ("beyonce", "knowles");
+
+INSERT INTO employee (first_name, last_name)
+VALUES ("mickey", "mouse");
 
 SELECT * FROM department;
 select * from role;
